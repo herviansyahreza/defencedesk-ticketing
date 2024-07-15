@@ -15,8 +15,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()); // Hapus opsi maxAge di sini
 
 // Konfigurasi CORS
+const allowedOrigins = ['http://localhost:5000', 'http://172.16.1.251:5000'];
 app.use(cors({
-    origin: 'http://localhost:5000', // Atur origin sesuai dengan domain frontend Anda
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
 }));
 
