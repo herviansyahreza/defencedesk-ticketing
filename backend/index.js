@@ -3,6 +3,7 @@ const app = express();
 const port = 5001;
 const db = require('./db.config/db.config');
 
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const userRouter = require('./router/router');
@@ -13,15 +14,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()); // Hapus opsi maxAge di sini
 
+// Konfigurasi CORS
+app.use(cors({
+    origin: '*', // Atur origin sesuai dengan domain frontend Anda
+    credentials: true,
+}));
 
-// Middleware untuk CORS
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://172.16.1.251:5000'); // Sesuaikan dengan domain frontend Anda
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
 
 // Route
 app.use('/', userRouter);
