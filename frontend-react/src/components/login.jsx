@@ -28,11 +28,10 @@ export default function Login() {
         }
     
         try {
-            const response = await axios.post('http://172.16.1.251:5001/login', {
+            const response = await axios.post('http://localhost:5001/login', {
                 email: email,
                 password: password
             });
-            console.log(response)
     
             if (response.status === 200) {
                 // Login berhasil
