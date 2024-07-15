@@ -32,6 +32,7 @@ export default function Login() {
                 email: email,
                 password: password
             });
+            console.log(response)
     
             if (response.status === 200) {
                 // Login berhasil
