@@ -16,7 +16,7 @@ app.use(cookieParser()); // Hapus opsi maxAge di sini
 
 // Konfigurasi CORS
 app.use(cors({
-    origin: 'http://172.16.1.251:5000', // Atur origin sesuai dengan domain frontend Anda
+    origin: '*', // Atur origin sesuai dengan domain frontend Anda
     credentials: true,
 }));
 
