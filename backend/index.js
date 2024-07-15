@@ -56,5 +56,5 @@ app.get('/checkdb', async (req, res) => {
 
 // Server listen
 app.listen(port, () => {
-    console.log(`App running at http://localhost:${port}`);
+    console.log(`App running at http://172.16.1.251:${port}`);
 });
