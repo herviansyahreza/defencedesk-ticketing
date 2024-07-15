@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()); // Hapus opsi maxAge di sini
 
 // Konfigurasi CORS
-//app.use(cors({
-//    origin: '*', // Atur origin sesuai dengan domain frontend Anda
-//    credentials: true,
-//}));
+app.use(cors({
+    origin: 'http//172.16.1.251:5000', // Atur origin sesuai dengan domain frontend Anda
+    credentials: true,
+}));
 
 // Route
 app.use('/', userRouter);
