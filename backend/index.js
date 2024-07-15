@@ -3,7 +3,7 @@ const app = express();
 const port = 5001;
 const db = require('./db.config/db.config');
 
-//const cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const userRouter = require('./router/router');
